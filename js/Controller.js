@@ -1,11 +1,13 @@
-var app = angular.module('myApp', []);
-app.controller('customersCtrl', function($scope, $http) {
-  $http.get("http://jsonplaceholder.typicode.com/users")
-  .success(function (response) {$scope.names = response;});
-  
-  $scope.go = function(row){
-	$scope.selectedRow = row;
-  }
-  
+var App = angular.module('myApp', []);
 
+App.controller('Ctrl', function($scope, $http) {
+	
+  $http.get('http://jsonplaceholder.typicode.com/users')
+       .then(function(res){
+          $scope.todos = res.data;                
+        });
+		
+		
 });
+
+
